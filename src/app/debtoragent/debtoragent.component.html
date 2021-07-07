@@ -1,0 +1,99 @@
+<div id="debtor_section">
+    <div class="row">
+        <div>
+            <a href="#" class="showsummary">Show Summary </a>
+        </div>
+    </div>
+    <div class="row" id="deb_Agent">
+        <div>
+            <i class="fas fa-angle-down" *ngIf="show"></i>
+            <i class="fas fa-angle-right" *ngIf="!show"></i>
+            <span (click)="toggleAccordian('Debtor_Agent')" id="sub_headers">Debtor Agent</span>
+        </div>
+        <div class="row subheaders_align_debt" *ngIf="show">
+            <div class="name">
+                <label class="col-md-2">Name</label>
+                <input type="text" [value]="debtor_details?.debtor_agent?.name" class="form-control col-md-4" id="iname" name="name">
+            </div>
+            <div class="name">
+                <label for="bic" class="col-md-2">BIC</label>
+                <input type="text" [value]="debtor_details?.debtor_agent?.bic" class="form-control" name="bic" id="bic">
+            </div>
+            <div class="row">
+                <div class="name">
+                    <label class="col-md-2">BCC</label>
+                    <input type="text" class="form-control" name="bcc" id="bcc1">
+                    <input type="text" class="form-control" name="bcc" id="bcc2">
+                </div>
+            </div>
+            <div>
+                <i class="fas fa-angle-right"></i>
+                <span class="more">More</span>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="row" id="debt_or">
+        <div>
+            <i class="fas fa-angle-right" *ngIf="!hide"></i>
+            <i class="fas fa-angle-down" *ngIf="hide"></i>
+            <span (click)="toggleAccordian('deb_tor')" class="accordian" id="sub_headers">Debtor</span>
+            <a href="#" class="customerfi">Customer FI&I</a>
+        </div>
+        <div class="row" *ngIf="hide">
+            <div>
+                <label class="subheaders_align">Name</label>
+                <input type="text" [value]="debtor_details?.debtor?.name" class="form-control" id="debt_iname">
+            </div>
+            <div id="debt">
+                <label class="subheaders_align">BIC</label>
+                <input type="text" [value]="debtor_details?.debtor?.bic" class="form-control" id="debt_iname">
+            </div>
+            <div>
+                <i class="fas fa-angle-right subheaders_align"></i>
+                <span class="more">More</span>
+            </div>
+        </div>
+    </div>
+    <div id="debt_or">
+        <i class="fas fa-angle-right"></i>
+        <span class="accordian" id="sub_headers">Instructing Agent</span>
+    </div>
+    <div id="debt_or">
+        <i class="fas fa-angle-right"></i>
+        <span class="accordian" id="sub_headers">Instructed Agent</span>
+    </div>
+    <div id="debt_or">
+        <i class="fas fa-angle-right"></i>
+        <span class="accordian" id="sub_headers">Instructing Reimbursement Agent</span>
+    </div>
+    <div id="debt_or">
+        <i class="fas fa-angle-right"></i>
+        <span class="accordian" id="sub_headers">Instructed Reimbursement Agent</span>
+    </div>
+    <div id="debt_or">
+        <i class="fas fa-angle-right"></i>
+        <span class="accordian" id="sub_headers">Third Reimbursement Agent</span>
+    </div>
+    <div id="debt_or">
+        <i class="fas fa-angle-right"></i>
+        <span class="accordian" id="sub_headers">Previous Instructing Agent1</span>
+    </div>
+    <div id="debt_or">
+        <i class="fas fa-angle-right"></i>
+        <span class="accordian" id="sub_headers">Previous Instructing Agent2</span>
+    </div>
+    <div id="debt_or">
+        <i class="fas fa-angle-right"></i>
+        <span class="accordian" id="sub_headers">Previous Instructing Agent3</span>
+    </div>
+    <div id="debt_or">
+        <i class="fas fa-angle-right"></i>
+        <span class="accordian" id="sub_headers">Ultimate Debtor</span>
+    </div>
+    <div id="debt_or">
+        <i class="fas fa-angle-right"></i>
+        <span class="accordian" id="sub_headers">Initiating Party</span>
+    </div>
+</div>

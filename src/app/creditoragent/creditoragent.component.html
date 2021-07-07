@@ -1,0 +1,81 @@
+<div id="creditor_section">
+    <div class="row">
+        <div class="require_cover">
+            <input type="checkbox">
+            <span id="required_cover_title">Requires Cover</span>
+            <select id="required_cover">
+            <option value="">      </option>
+        </select>
+
+            <a href="#" class="showsummary">Show Summary</a>
+        </div>
+    </div>
+    <div class="row" id="deb_Agent">
+        <div>
+            <i class="fas fa-angle-down" *ngIf="show"></i>
+            <i class="fas fa-angle-right" *ngIf="!show"></i>
+            <span (click)="toggleAccordian('creditor_Agent')" id="sub_headers">Creditor Agent</span>
+        </div>
+        <div class="row subheaders_align_debt" *ngIf="show">
+            <div class="name">
+                <label class="col-md-2">Name</label>
+                <input type="text" [value]="creditorDetails?.creditor_agent?.name" class="form-control col-md-4" id="iname" name="name">
+            </div>
+            <div class="name">
+                <label for="bic" class="col-md-2">BIC</label>
+                <input type="text" [value]="creditorDetails?.creditor_agent?.bic" class="form-control" name="bic" id="bic">
+            </div>
+            <div class="row">
+                <div class="name">
+                    <label class="col-md-2">BCC</label>
+                    <input type="text" class="form-control" name="bcc" id="bcc1" [value]="creditorDetails?.creditor_agent?.bcc1">
+                    <input type="text" class="form-control" name="bcc" id="bcc2" [value]="creditorDetails?.creditor_agent?.bcc2">
+                </div>
+            </div>
+            <div>
+                <i class="fas fa-angle-right"></i>
+                <span class="more">More</span>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="row" id="credit_tor">
+        <div>
+            <i class="fas fa-angle-right" *ngIf="!hide"></i>
+            <i class="fas fa-angle-down" *ngIf="hide"></i>
+            <span (click)="toggleAccordian( 'credi_tor')" class="accordian" id="sub_headers">Creditor</span>
+            <a href="#" class="customerfi">Customer FI&I</a>
+        </div>
+        <div class="row" *ngIf="hide">
+            <div>
+                <label class="subheaders_align">Name</label>
+                <input type="text" [value]="creditorDetails?.creditor?.name" class="form-control" id="debt_iname">
+            </div>
+            <div id="credit">
+                <label class="subheaders_align">BIC</label>
+                <input type="text" [value]="creditorDetails?.creditor?.bic" class="form-control" id="debt_iname">
+            </div>
+            <div>
+                <i class="fas fa-angle-right subheaders_align"></i>
+                <span class="more">More</span>
+            </div>
+        </div>
+    </div>
+    <div id="credit_tor">
+        <i class="fas fa-angle-right"></i>
+        <span class="accordian" id="sub_headers">Intermediary Agent1</span>
+    </div>
+    <div id="credit_tor">
+        <i class="fas fa-angle-right"></i>
+        <span class="accordian" id="sub_headers">Intermediary Agent2</span>
+    </div>
+    <div id="credit_tor">
+        <i class="fas fa-angle-right"></i>
+        <span class="accordian" id="sub_headers">Intermediary Agent3</span>
+    </div>
+    <div id="credit_tor">
+        <i class="fas fa-angle-right"></i>
+        <span class="accordian" id="sub_headers">Ultimate Creditor</span>
+    </div>
+</div>

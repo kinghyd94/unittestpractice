@@ -1,0 +1,241 @@
+<form class="form" [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+
+    <div class="container">
+        <div style="margin-top: 33px;
+box-shadow: 1px 2px 6px 3px lightgrey;
+padding-bottom: 22px;
+padding-top: 20px;">
+
+            <ul class="nav nav-tabs">
+                <li class="active tab-list">
+                    <span id="content">Message Details</span>
+                </li>
+                <li class="tab-list">
+                    <span id="content">FX</span>
+                </li>
+                <li class="tab-list">
+                    <span id="content">Charges</span>
+                </li>
+                <li class="tab-list">
+                    <span id="content">Dates</span>
+                </li>
+                <li class="tab-list">
+                    <span id="content">Payment history</span>
+                </li>
+                <li class="tab-list">
+                    <span id="content">Related Messages</span>
+                </li>
+                <li class="tab-list">
+                    <span id="content">Remittance</span>
+                </li>
+                <li class="tab-list">
+                    <span id="content">Miscellaneous</span>
+                </li>
+            </ul>
+            <br>
+            <div class="row" style="padding: 0px 19px;">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Transaction Type</label>
+                        <select class="form-control" [class.is-invalid]="transactionType?.invalid && transactionType?.invalid" formControlName="transactionType">
+                        <option value="FTR">FTR</option>
+            </select>
+                        <div *ngIf="messageForm.get('transactionType')!.errors?.required &&
+                        messageForm.get('transactionType')!.touched">
+                            PLease select
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Transaction Amount</label>
+                        <input class="form-control" formControlName="transactionAmount">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="
+                      messageForm.get('transactionAmount')!.errors?.required &&
+                      messageForm.get('transactionAmount')!.touched
+                   ">
+                        Amount is required
+                    </div>
+                    <div class="alert alert-danger" *ngIf="messageForm.get('transactionAmount')!.errors?.minlength">
+                        Minimum Length 2 is required
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Transaction Currency</label>
+                        <select class="form-control" [value]="messageDetails?.transaction?.transactionCurrency">
+                <option value="USD">USD</option>
+                <option value="AUD">AUD</option>
+            </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Transaction Rate</label>
+                        <input class="form-control" [value]="messageDetails?.transaction?.transactionRate" type="text">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Trans. Rate Indicator</label>
+                        <input class="form-control" type="text">
+
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Trans. Contract No.</label>
+                        <input class="form-control" [value]="messageDetails?.transaction?.transContractNumber" type="text">
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Debit Account Type</label>
+                        <input class="form-control" [value]="messageDetails?.debit?.debitAccountType" type="text">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Debit Account</label>
+                        <input class="form-control" [value]="messageDetails?.debit?.debitAccount" type="text">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Debit Currency</label>
+                        <select class="form-control" [value]="messageDetails?.transaction?.debitCurrency">
+                <option value="USD">USD</option>
+                <option value="AUD">AUD</option>
+            </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Source</label>
+                        <input class="form-control" [value]="messageDetails?.debit?.source" type="text">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Cleaning</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Repetitive Id</label>
+                        <input class="form-control" [value]="messageDetails?.debit?.repetitiveId" type="text">
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Credit Account Type</label>
+                        <input class="form-control" [value]="messageDetails?.credit?.creditAccountType" type="text">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Credit Account</label>
+                        <input class="form-control" [value]="messageDetails?.credit?.creditAccount" type="text">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Credit Currency</label>
+                        <select class="form-control" [value]="messageDetails?.transaction?.creditCurrency">
+                <option value="USD">USD</option>
+                <option value="AUD">AUD</option>
+            </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>State</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Substate</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Document Id</label>
+                        <input class="form-control" [value]="messageDetails?.credit?.documentId" type="text">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Fields -->
+            <div class="row" style="padding: 0px 19px;">
+                <div>
+                    <i class="fas fa-angle-right" *ngIf=!show></i>
+                    <i class="fas fa-angle-down" *ngIf=show></i>
+                    <span class="accordion" (click)="toggleAccordian( 'custom_fields')" id="sub_headers">Custom Fields</span>
+                </div>
+                <div class="row subheaders_align" *ngIf="show">
+                    <div class="col-md-2">
+                        <label for="">Custom Field 1</label>
+                        <input type="text" class="form-control subheaders_align">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="">Custom Field 2</label>
+                        <input type="text" class="form-control subheaders_align">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="">Custom Field 3</label>
+                        <input type="text" class="form-control subheaders_align">
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="">Custom Field 4</label>
+                        <input type="text" class="form-control subheaders_align">
+
+                    </div>
+                    <div class="col-md-2">
+                        <label for="">Custom Field 5</label>
+                        <input type="text" class="form-control subheaders_align">
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <!-- Special Instructions -->
+            <div class="row" style="padding: 0px 19px;">
+                <div>
+                    <i class="fas fa-angle-right" *ngIf=!hide></i>
+                    <i class="fas fa-angle-down" *ngIf=hide></i>
+                    <span class="accordion" (click)="toggleAccordian( 'special_instructions')" id="sub_headers">Special Instructions</span>
+                </div>
+                <div class="row subheaders_align" *ngIf="hide">
+                    <div class="col-md-6">
+                        <label for="">Debit Account Special Instructions</label>
+                        <textarea class="form-control"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="">Credit Account Special Instructions</label>
+                        <textarea class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+<div class="container">
+    <div class="row" style="padding-top: 25px;padding-bottom: 25px;">
+        <div class="col-md-6">
+            <app-debtoragent [debtor_details]=" messageDetails"></app-debtoragent>
+        </div>
+        <div class="col-md-6">
+            <app-creditoragent [creditorDetails]="messageDetails"></app-creditoragent>
+        </div>
+    </div>
+</div>

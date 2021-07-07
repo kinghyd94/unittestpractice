@@ -1,0 +1,44 @@
+{
+    "logTimestamp": "Jan 6 2019 08:01:00",
+    "paymentTrn": "Doe",
+    "id": 1,
+    "debtorAccount": "061",
+    "transaction": {
+        "transactionType": "FTR",
+        "transactionCurrency": "USD",
+        "transactionAmount": "2000",
+        "transactionRate": "1.0",
+        "transContractNumber": "2949586"
+    },
+    "debit": {
+        "debitAccountType": "Demand Deposit",
+        "debitAccount": "5554334334",
+        "debitCurrency": "USD",
+        "source": "Backoffice",
+        "repititiveId": "5500"
+    },
+    "credit": {
+        "creditAccountType": "Foreign Nastro",
+        "creditAccount": "1022332533",
+        "creditCurrency": "USD",
+        "documentId": "99653"
+    },
+    "debtor_agent": {
+        "name": "Banca Commercial Italian",
+        "bic": "BCCITTMM500"
+    },
+    "debtor": {
+        "name": "King Fischer investment Corp",
+        "bic": "00FXUS6S1234"
+    },
+    "creditor_agent": {
+        "name": "Lioyds Bank Leicester",
+        "bic": "BCCITTMM500",
+        "bcc1": "GBDSC",
+        "bcc2": "772510"
+    },
+    "creditor": {
+        "name": "Barceloneta Restaurant",
+        "bic": "BARCGB485"
+    }
+}
